@@ -13,6 +13,7 @@ const CategoryPage = () =>{
     },[category,categoriesMap])
 
     return (<div className='container-1'>
+        <h3>{category}</h3>
         <div className='category-container-1'>
         {
             products && (products.map(product =>{

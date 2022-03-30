@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './cart-dropdown.styles.scss';
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 import {CartContext} from '../../contexts/cart.context';
+import {CartDropDownContainer,EmptyMessage,CartItems} from './cart-dropdown.styles';
 
 const CartDropDown = () =>{
     const {cartItems,setIsCartOpen,isCartOpen} = useContext(CartContext);
@@ -13,18 +13,18 @@ const CartDropDown = () =>{
         navigate('/checkout');
         setIsCartOpen(false);
     }
-    return(<div className='cart-dropdown-container'>
+    return(<CartDropDownContainer>
         {cartItems.length ? (<div>
-            <div className='cart-items'>
+            <CartItems>
                 {cartItems.map(item =>{
                     return (<CartItem key={item.id} cartItem={item}/>)
                 })}
-            </div>
+            </CartItems>
             <Button type="button" onClick={goToCheckOut}>GO TO CHECKOUT</Button>
-        </div>) : <div className='cart-no-data'>
+        </div>) : <EmptyMessage>
             <i className="fa-solid fa-box fa-2x"></i>
             <p>Cart is empty</p>
-        </div>}
-    </div>)
+        </EmptyMessage>}
+    </CartDropDownContainer>)
 } 
 export default CartDropDown;

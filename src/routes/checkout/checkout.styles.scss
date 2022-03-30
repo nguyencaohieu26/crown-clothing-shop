@@ -30,4 +30,22 @@
     text-align: right;
     font-size: 1.8rem;
   }
+  .no-data-container {
+    margin-top: 2.3rem;
+    text-align: center;
+    a {
+      color: rgb(110, 137, 228);
+      text-decoration: underline;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 4px;
+      transition: 0.3s all ease-in-out;
+      &:hover {
+        color: rgb(34, 74, 204);
+      }
+    }
+    p {
+      margin-top: 0;
+    }
+  }
 }

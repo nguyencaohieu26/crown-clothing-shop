@@ -1,6 +1,6 @@
 import { Fragment,useContext } from 'react';
-import './navigation.styles.scss';
-import {Outlet,Link} from 'react-router-dom';
+import { NavigationContainer,LogoContainer,NavLinks,NavLink } from './navigation.styles';
+import {Outlet} from 'react-router-dom';
 import {ReactComponent as CrwnLogo} from '../../assets/images/crown.svg';
 import {UserContext} from '../../contexts/user.context';
 import { CartContext } from '../../contexts/cart.context';
@@ -16,24 +16,23 @@ const Navbar = () =>{
   const signOutHandle = async () =>{
    await signOutUser();
   }
-
     return(
       <Fragment>
-        <nav className='navigation'>
-          <Link to="/" className='logo-container'>
+        <NavigationContainer>
+          <LogoContainer to="/" >
             <CrwnLogo className='logo'/>
-          </Link>
-          <div className='nav-links-container'>
-            <Link className='nav-link' to='/shop'>Shop</Link>
-            <Link className='nav-link' to='/shop'>About us</Link>
-            <Link className='nav-link' to='/contact'>Contact</Link>
-            {currentUser ? (<span className='nav-link' onClick={signOutHandle}>
+          </LogoContainer>
+          <NavLinks>
+            <NavLink to='/shop'>Shop</NavLink>
+            <NavLink to='/shop'>About us</NavLink>
+            <NavLink to='/contact'>Contact</NavLink>
+            {currentUser ? (<NavLink as='span' onClick={signOutHandle}>
               Sign Out
-            </span>): (<Link className='nav-link' to='/auth'>Log in</Link>)}
+            </NavLink>): (<NavLink to='/auth'>Log in</NavLink>)}
             <CartIcon/>
-          </div>
+          </NavLinks>
           {isCartOpen && <CartDropDown/>}
-        </nav>
+        </NavigationContainer>
         <Outlet/>
         <Footer/>
       </Fragment>

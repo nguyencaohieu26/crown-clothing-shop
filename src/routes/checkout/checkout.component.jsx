@@ -1,4 +1,5 @@
 import './checkout.styles.scss';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
@@ -31,7 +32,10 @@ const Checkout = () =>{
         {cartItems.length ? (<div className='checkout-main'>  {cartItems.map(item =>{
             return (<CheckoutItem key={item.id} cartItem={item}/>)
         })} 
-        <p className='total'>Total Price: <span>{cartTotal}</span></p></div>) : (<div><p>No products found</p></div>)}
+        <p className='total'>Total Price: <span>{cartTotal}</span></p></div>) : (<div className='no-data-container'>
+            <Link to="/shop">Go to shopping</Link>
+            <p>No products found</p>
+        </div>)}
       
     </div>)
 }
