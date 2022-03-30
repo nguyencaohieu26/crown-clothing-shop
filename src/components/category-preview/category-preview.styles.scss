@@ -1,0 +1,25 @@
+.category-preview-container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 0 10px;
+  flex-direction: column;
+  h2 {
+    display: flex;
+    align-items: center;
+  }
+  .title {
+    font-size: 26px;
+    cursor: pointer;
+  }
+  .quantity {
+    margin-left: 5px;
+    font-size: 1.1rem;
+    color: #777;
+  }
+  .preview {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
