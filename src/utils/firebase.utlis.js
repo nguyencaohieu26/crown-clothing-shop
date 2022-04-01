@@ -1,5 +1,4 @@
 //Just for using firebase
-import { async } from '@firebase/util';
 import {initializeApp} from 'firebase/app';
 import {getAuth,
     signInWithRedirect,

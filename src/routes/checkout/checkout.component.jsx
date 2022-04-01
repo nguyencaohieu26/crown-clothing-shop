@@ -6,7 +6,7 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 import { formatCurrency } from '../../utils/formatCurrency';
 
 const Checkout = () =>{
-    const {cartItems,cartTotal} = useContext(CartContext);
+    const {cartItems,total} = useContext(CartContext);
     
     return (<div className='checkout-container'>
         <div className="checkout-header">
@@ -32,7 +32,7 @@ const Checkout = () =>{
         {cartItems.length ? (<div className='checkout-main'>  {cartItems.map(item =>{
             return (<CheckoutItem key={item.id} cartItem={item}/>)
         })} 
-        <p className='total'>Total Price: <span>{cartTotal}</span></p></div>) : (<div className='no-data-container'>
+        <p className='total'>Total Price: <span>{total}</span></p></div>) : (<div className='no-data-container'>
             <Link to="/shop">Go to shopping</Link>
             <p>No products found</p>
         </div>)}
